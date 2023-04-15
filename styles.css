@@ -25,7 +25,7 @@ body{
     justify-content: space-around;
     align-items: center;
     font-size: 2.5rem;
-        background-color: lightgray;
+    background-color: lightgray;
     opacity: 0.8;
     box-shadow: 0px 2px grey;
 }
@@ -38,6 +38,7 @@ button{
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .displaypanel {
@@ -54,6 +55,15 @@ button{
     padding: 1rem;
 }
 
+.progress {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 4px;    
+    font-size: 1.3rem;
+    padding: 1.5rem;
+}
+
 .bookcontainer .modal {
     display: flex;
     flex-direction: column;
@@ -61,18 +71,21 @@ button{
     gap: 2rem;
     align-items: center;
     letter-spacing: .1rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
     background-color: lightgray;
     opacity: .7;
     border-radius: 1rem;
     box-shadow: 1.5px 1.5px grey;
-    width: 13rem ;
-    height: 15rem;
+    width: 20rem ;
+    height: 18rem;
     margin: 1rem;
     font-size: 1.2rem;
 }
 
 .formcontainer {
+    position: absolute;
+    top: 15rem;
+    left: 50rem;
     display: none;
     flex-direction: column;
     justify-content: flex-start;
@@ -80,14 +93,40 @@ button{
     align-items: center;
     letter-spacing: .1rem;
     padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
     background-color: lightgray;
     opacity: .7;
     border-radius: 1rem;
     box-shadow: 1.5px 1.5px grey;
-    width: 13rem ;
-    height: 15rem;
+    width: 17rem ;
+    height: auto;
     margin: 1rem;
     font-size: 1.2rem;
     display: none;
+    z-index: 99;
 }
 
+.formcells {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: .5rem;
+}
+
+input{
+    padding: .3rem;
+}
+
+input[type=submit] {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 1rem;
+    margin-top: 0.8rem;
+  }
