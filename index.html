@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Library</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
+    <!-- =========Header Start================ -->
     <div class="header">
         <div class="title">Book Library</div>
         <div class="progress">
@@ -19,36 +21,55 @@
             <button class="addbtn">Add Book</button>
         </div>
     </div>
+    <!-- =========Header End====================================-->
+
+    <!-- =========Display Books Start========================== -->
     <section class="displaypanel">
         <div class="bookcontainer">
-        </div>
-        <div class="formcontainer">
-            <div class="formtext">Please Fill Book details</div>
-            <form class="formcells">
-                <label for="Title">Title:</label>
-                <input type="text" id="title" placeholder="Game of Thrones..." required>
-                <label for="Author">Author:</label>
-                <input type="text" id="author" name="author" placeholder="Tolkin" required>
-                <label for="pages">No of Pages:</label>
-                <input type="number" id="pages" name="pages" required>
-                <div class="yesno">
-                    <p class="readtitle">Have you read the book</p>
-                    <input type="radio" id="readyes" value="Yes" name="read" >
-                    <label for="read" class="radio" >Yes</label><br>
-                    <input type="radio" id="readno" value="No" name="read" >
-                    <label for="readno" class="radio">No</label><br>
+            <div class="modal">
+                <div class="titlecontainer">
+                    <div class="divTitle"></div>
+                    <div class="material-symbols-outlined closemodal">close</div>
                 </div>
-                <input type="submit" value="Submit" id="submit">
-            </form>
+                <div class="divAuthor"></div>
+                <div class="divPages"></div>
+                <div class="divRead"></div>
+            </div>
         </div>
     </section>
+    <!-- =========Display Books End========================== -->
     
+    <!-- =========Input Form End============================= -->
+    <div class="formcontainer">
+        <div class="titlecontainer">
+            <div class="formtext">Please Fill Book details</div>
+            <div class="material-symbols-outlined closebtn">close</div>
+        </div>
+        <form class="formcells">
+            <label for="Title">Title:</label>
+            <input type="text" id="title" placeholder="Game of Thrones..." required>
+            <label for="Author">Author:</label>
+            <input type="text" id="author" name="author" placeholder="Tolkin" required>
+            <label for="pages">No of Pages:</label>
+            <input type="number" id="pages" name="pages" required>
+            <div class="yesno">
+                <p class="readtitle">Have you read the book</p>
+                <input type="radio" id="readyes" value="Yes" name="read" >
+                <label for="read" class="radio" >Yes</label><br>
+                <input type="radio" id="readno" value="No" name="read" >
+                <label for="readno" class="radio">No</label><br>
+            </div>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+    <!-- =========Input Form End========================== -->
 
 
 
 
 
-
+    <!-- ----------------Script============================ -->
     <script src="./main.js" ></script>
+    <!-- ----------------Script============================ -->
 </body>
 </html>
