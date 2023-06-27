@@ -14,8 +14,14 @@ const booksInProgressText = document.querySelector('.unfinished')
 const closebtn = document.querySelector('.closebtn')
 const header = document.querySelector('.header')
 const displaypanel = document.querySelector('.displaypanel')
-let closemodal = document.querySelector('.closemodal')
-
+// let titleValue = document.querySelector('.titlevalue')
+let authorValue = document.querySelector('.authorvalue')
+let readValue = document.querySelector('.readvalue')
+let pagesValue = document.querySelector('.pagesvalue')
+const changeBtn = document.querySelector('.change')
+const removeBtn = document.querySelector('.remove')
+let modal = document.querySelector('.modal')
+const bookContainer = document.querySelector('.bookcontainer')
 
 
 function Book (title, author, pages , read) {
@@ -33,52 +39,29 @@ function addBookToLibrary (book) {
 }
 
 function showLibrary(lib) {
-    for(let i in lib) {
-        console.log(myLibrary[i])
-    }
+    lib.forEach(element => {
+        // Create modal===================================
+        const newmodal = document.createElement('div')
+        newmodal.classList.add('modal')
+        const divTitle = document.createElement('h2')
+        const titleValue = document.createElement('h1')
+        titleValue.classList.add('titlevalue')
+        divTitle.textContent = 'Title: '
+        bookContainer.appendChild(newmodal)
+        newmodal.appendChild(divTitle)
+        newmodal.appendChild(titleValue)
+        modal.style.display = 'flex'
+        titleValue.textContent = element.title
+        // authorValue.textContent = element.author
+        // readValue.textContent = element.read
+        // pagesValue.textContent = element.pages
+    });
 }
 
 // ==================To do ===========================================================================================
 // =========for every new book created create new modal and pass author title etc and show it in dom
 function appendBook (book) {
-    const divTitle = document.querySelector('.divTitle')
-    const divAuthor = document.querySelector('.divAuthor')
-    const divPages = document.querySelector('.divPages')
-    const divRead = document.querySelector('.divRead')
-    const bookContainer = document.querySelector('.bookcontainer')
-    const modal = document.querySelector('.modal')
     
-    if (myLibrary.length === 1) {
-        console.log("array of one book")
-        modal.style.display = 'flex'
-        divTitle.textContent = ` Title: ${book.title} `
-        divAuthor.textContent = `Author: ${book.author} `
-        divPages.textContent = `Pages: ${book.pages}`
-        divRead.textContent = `Read: ${book.read}`
-    }else{
-        const newdivTitle = document.createElement('div')
-        const newdivAuthor = document.createElement('div')
-        const newdivPages = document.createElement('div')
-        const newdivRead = document.createElement('div')
-        const newModal = document.createElement('div')
-        const titlecontainer = document.createElement('div')
-        closemodal = `<div class="material-symbols-outlined closemodal">close</div>`
-        console.log("aray bigger than one")
-        newdivTitle.textContent = ` Title: ${book.title} ` //separate data from titles in order to identify them later
-        newdivAuthor.textContent = `Author: ${book.author} ` //separate data from titles in order to identify them later
-        newdivPages.textContent = `Pages: ${book.pages}` //separate data from titles in order to identify them later
-        newdivRead.textContent = `Read: ${book.read}` //separate data from titles in order to identify them later
-        newModal.classList.add('modal')
-        newModal.style.display = 'flex'
-        titlecontainer.classList.add('titlecontainer')
-        bookContainer.appendChild(newModal)
-        titlecontainer.appendChild(newdivTitle)
-        titlecontainer.innerHTML += closemodal
-        newModal.appendChild(titlecontainer)
-        newModal.appendChild(newdivAuthor)
-        newModal.appendChild(newdivPages)
-        newModal.appendChild(newdivRead)
-    }
     
 }
 // ==================To do ===========================================================================================
@@ -112,23 +95,23 @@ closebtn.addEventListener('click', () => {
 
 })
 
-closemodal.addEventListener('click',deleteBook)
+// closemodal.addEventListener('click',deleteBook)
 
 // ==================To do ===========================================================================================
-function deleteBook (e) {
-    //identify book with id(id=title )
-    let id = e.target.previousElementSibling.textContent
-    alert(id)
-    // delete book from array
-    for (i in myLibrary){
-        if (myLibrary[i].title === id){
-            myLibrary.splice(i,1)
-        }
-    }
-    // delete book from display panel 
+// function deleteBook (e) {
+//     //identify book with id(id=title )
+//     let id = e.target.previousElementSibling.textContent
+//     alert(id)
+//     // delete book from array
+//     for (i in myLibrary){
+//         if (myLibrary[i].title === id){
+//             myLibrary.splice(i,1)
+//         }
+//     }
+//     // delete book from display panel 
     
-    // update counters 
-}
+//     // update counters 
+// }
 // ==================To do ===========================================================================================
 
 
@@ -143,7 +126,8 @@ submitbtn.addEventListener('click', (event) => {
     newBook = new Book (bookTitle, authorName, pagesRead , read)
     addBookToLibrary(newBook)
     showLibrary(myLibrary)
-    appendBook(newBook)
+    // appendBook(newBook)
+    
     console.log(myLibrary)
     if (read === 'Yes'){
         totalBooks++

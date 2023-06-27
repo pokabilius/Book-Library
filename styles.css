@@ -71,7 +71,7 @@ button{
     flex-direction: column;
     justify-content: space-around;
     /* gap: 2rem; */
-    align-items: flex-start;
+    align-items: center;
     letter-spacing: .1rem;
     /* padding-top: 2rem; */
     background-color: lightgray;
@@ -79,19 +79,49 @@ button{
     border-radius: 1rem;
     box-shadow: 1.5px 1.5px grey;
     width: 20rem ;
-    height: 18rem;
+    height: 23rem;
     margin: 1rem;
     font-size: 1.2rem;
     padding-left: 1rem;
 }
 
-.modal .titlecontainer{
+.change,
+.remove{
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 1rem;
+    margin-top: 0.8rem;
+    width: 8rem;
+
+}
+
+.buttoncontainer{
+    gap: 1rem;
+}
+.modal .flexcontainer{
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.modal .buttoncontainer{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-
+h1 {
+    font-size: 1.2rem;
+}
+h2 {
+    font-size: 1.5rem;
+}
 
 .formcontainer {
     position: absolute;
